@@ -8,7 +8,7 @@ import java.util.List;
 import kr.co.kosta.contact.model.Contact;
 
 /**
- * Ŭ���� ����
+ * Å¬·¡½º ¼³¸í
  * @author kim
  * @version
  *
@@ -16,8 +16,8 @@ import kr.co.kosta.contact.model.Contact;
 public interface ContactService {
 
 	/**
-	 * �޼ҵ� ����
-	 * @param contact
+	 * ¸Þ¼Òµå ¼³¸í
+	 * @param contact 서버에서 수정했어요
 	 */
 	void registContact(Contact contact);
 	
