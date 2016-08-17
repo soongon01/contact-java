@@ -17,17 +17,21 @@ public class ContactView {
 			choice = br.readLine();
 			
 			if (choice.startsWith("1")) {
-				System.out.println("1�� �����̽��ϴ�.");
+				System.out.println("1번을 눌렀습니다.");
 			}
 			else if (choice.startsWith("2")) {
-				System.out.println("2�� �����̽��ϴ�.");
+				System.out.println("2번을 눌렀습니다.");
+			}
+			else if (choice.trim().toUpperCase().startsWith("Q")) {
+				System.out.println("감사합니다. 다음에 또 만나요.");
+				break;
 			}
 			else {
-				
+				System.out.println("잘못눌렀습니다. 다시 선택해 주세요.");
 			}
 			
-		} while (!choice.trim().toUpperCase().startsWith("Q"));
-		System.out.println("program terminated..");
+		} while (true);
+		
 	}
 
 	private void printMainMenu() {

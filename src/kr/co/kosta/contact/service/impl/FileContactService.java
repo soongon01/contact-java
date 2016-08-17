@@ -10,10 +10,7 @@ public class FileContactService implements ContactService {
 	@Override
 	public void registContact(Contact contact) {
 		
-		
-		
-		// TODO Auto-generated method stub
-		
+		System.out.println("contact regist ok..");
 	}
 
 	@Override
