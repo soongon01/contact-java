@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import kr.co.kosta.contact.model.Contact;
+import kr.co.kosta.contact.service.ContactService;
+import kr.co.kosta.contact.service.impl.FileContactService;
+
 public class ContactView {
 
 	public void run() throws IOException {
@@ -17,7 +21,12 @@ public class ContactView {
 			choice = br.readLine();
 			
 			if (choice.startsWith("1")) {
-				System.out.println("1번을 눌렀습니다.");
+				//System.out.println("1번을 눌렀습니다.");
+				Contact contact = makeContactFromUserInput();
+				//
+				ContactService service = new FileContactService();
+				service.registContact(contact);
+				
 			}
 			else if (choice.startsWith("2")) {
 				System.out.println("2번을 눌렀습니다.");
@@ -32,6 +41,24 @@ public class ContactView {
 			
 		} while (true);
 		
+	}
+
+	private Contact makeContactFromUserInput() throws IOException {
+		System.out.print("이름 이메일 나이 주소를 각각 세미콜론(;)으로 구분해서 입력해 주세요>");
+		BufferedReader br = new BufferedReader(
+				new InputStreamReader(System.in));
+		String inputFromUser = br.readLine();
+		// 김순곤; soongon@gmail.com;45;서울
+		
+		String[] spliitedData = inputFromUser.split(";");
+		//데이터를 가지고 Contact 객체를 생성
+		Contact contact = new Contact();
+		contact.setName(spliitedData[0]);
+		contact.setEmail(spliitedData[1]);
+		contact.setAge(Integer.parseInt(spliitedData[2]));
+		contact.setAddr(spliitedData[3]);
+		
+		return contact;
 	}
 
 	private void printMainMenu() {
