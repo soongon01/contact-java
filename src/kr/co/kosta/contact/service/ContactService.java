@@ -3,6 +3,7 @@
  */
 package kr.co.kosta.contact.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import kr.co.kosta.contact.model.Contact;
@@ -19,7 +20,7 @@ public interface ContactService {
 	 * 연락처 등록하기
 	 * @param contact 서버에서 수정했어요
 	 */
-	void registContact(Contact contact);
+	void registContact(Contact contact) throws SQLException;
 	
 	/**
 	 * 연락처 전체보기

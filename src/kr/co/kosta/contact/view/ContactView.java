@@ -3,10 +3,12 @@ package kr.co.kosta.contact.view;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 import kr.co.kosta.contact.model.Contact;
 import kr.co.kosta.contact.service.ContactService;
 import kr.co.kosta.contact.service.impl.FileContactService;
+import kr.co.kosta.contact.service.impl.MySQLContactService;
 
 public class ContactView {
 
@@ -24,9 +26,13 @@ public class ContactView {
 				//System.out.println("1번을 눌렀습니다.");
 				Contact contact = makeContactFromUserInput();
 				//
-				ContactService service = new FileContactService();
-				service.registContact(contact);
-				
+				ContactService service = new MySQLContactService();
+				try {
+					service.registContact(contact);
+					System.out.println("insert ok..");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 			else if (choice.startsWith("2")) {
 				System.out.println("2번을 눌렀습니다.");
